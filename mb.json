@@ -1,0 +1,127 @@
+{
+    "protocol": "http",
+    "port": 4545,
+    "numberOfRequests": 0,
+    "requests": [],
+    "stubs": [
+        {
+            "responses": [
+                {
+                    "is": {
+                        "statusCode": 200,
+                        "headers": {
+                            "Content-Type": "application/json"
+                        },
+                        "body": {
+                            "Success": "true",
+                            "ErrorCode": 0,
+                            "ErrorMessage": "null",
+                            "Result": {
+                                "CustomerPhoneNumber": "9734385660",
+                                "Transactions": [
+                                    {
+                                        "TrackingNumber": "123456789012",
+                                        "PaymentStatus": "Paid",
+                                        "DeliveryMethod": "MOBILE WALLET",
+                                        "WireNumber": "BPCCFEE-70681",
+                                        "TransferAmount": "45",
+                                        "PaymentMethod": "PaS",
+                                        "PaSExpirationDate": "2017-08-26T20:37:50",
+                                        "PaSDisplayStatus": "Pending",
+                                        "PaSTransferPrice": "1000"
+                                    },
+                                    {
+                                        "TrackingNumber": "111222333444",
+                                        "PaymentStatus": "Unpaid",
+                                        "DeliveryMethod": "HOME DELIVERY",
+                                        "WireNumber": "BPCCFEE-67707",
+                                        "TransferAmount": "25",
+                                        "PaymentMethod": "CC",
+                                        "PaSExpirationDate": "",
+                                        "PaSDisplayStatus": "",
+                                        "PaSTransferPrice": ""
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ],
+            "predicates": [
+                {
+                    "matches": {
+                        "method": "GET",
+                        "path": "/ivr/pin/\\d+$"
+                    }
+                }
+            ]
+        },
+                {
+            "responses": [
+                {
+                    "is": {
+                        "statusCode": 200,
+                        "headers": {
+                            "Content-Type": "application/json"
+                        },
+                        "body": {
+                            "Success": "true",
+                            "ErrorCode": 0,
+                            "ErrorMessage": "null",
+                            "Result": {
+                                "CustomerPhoneNumber": "7777777777777",
+                                "Transactions": [
+                                    {
+                                        "TrackingNumber": "123456789012",
+                                        "PaymentStatus": "Paid",
+                                        "DeliveryMethod": "MOBILE WALLET",
+                                        "WireNumber": "BPCCFEE-70681",
+                                        "TransferAmount": "45",
+                                        "PaymentMethod": "PaS",
+                                        "PaSExpirationDate": "2017-08-26T20:37:50",
+                                        "PaSDisplayStatus": "Pending",
+                                        "PaSTransferPrice": "1000"
+                                    },
+                                    {
+                                        "TrackingNumber": "111222333444",
+                                        "PaymentStatus": "Unpaid",
+                                        "DeliveryMethod": "HOME DELIVERY",
+                                        "WireNumber": "BPCCFEE-67707",
+                                        "TransferAmount": "25",
+                                        "PaymentMethod": "CC",
+                                        "PaSExpirationDate": "",
+                                        "PaSDisplayStatus": "",
+                                        "PaSTransferPrice": ""
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ],
+            "predicates": [
+                {
+                    "equals": {
+                        "method": "POST",
+                        "path": "/ivr/pin"
+                    }
+                }
+            ]
+        },
+        {
+        	 "responses": [
+                {
+                    "is": {
+                        "statusCode": 400,
+                        "headers": {
+                            "Content-Type": "application/json"
+                        },
+                        "body":{
+                        	 "ErrorMessage": "pin not found"
+                        }
+                    }
+                }
+        	]
+        }
+    ]
+}
